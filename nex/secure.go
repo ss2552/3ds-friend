@@ -4,10 +4,8 @@ import (
 	"time"
 
 	database_3ds "github.com/PretendoNetwork/friends/database/3ds"
-	database_wiiu "github.com/PretendoNetwork/friends/database/wiiu"
 	"github.com/PretendoNetwork/friends/globals"
 	notifications_3ds "github.com/PretendoNetwork/friends/notifications/3ds"
-	notifications_wiiu "github.com/PretendoNetwork/friends/notifications/wiiu"
 	friends_types "github.com/PretendoNetwork/friends/types"
 	nex "github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/nex-go/v2/types"
@@ -34,14 +32,7 @@ func StartSecureServer() {
 		lastOnline := types.NewDateTime(0)
 		lastOnline.FromTimestamp(time.Now())
 
-		if platform == friends_types.WUP {
-			err := database_wiiu.UpdateUserLastOnlineTime(pid, lastOnline)
-			if err != nil {
-				globals.Logger.Critical(err.Error())
-			}
-
-			notifications_wiiu.SendUserWentOfflineGlobally(connection)
-		} else if platform == friends_types.CTR {
+		if platform == friends_types.CTR {
 			err := database_3ds.UpdateUserLastOnlineTime(pid, lastOnline)
 			if err != nil {
 				globals.Logger.Critical(err.Error())
