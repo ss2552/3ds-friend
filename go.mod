@@ -5,7 +5,6 @@ go 1.24.0
 toolchain go1.24.3
 
 require (
-	github.com/PretendoNetwork/grpc/go v0.0.0-20260114221322-0631a1e0c840
 	github.com/PretendoNetwork/nex-go/v2 v2.3.0
 	github.com/PretendoNetwork/nex-protocols-common-go/v2 v2.4.0
 	github.com/PretendoNetwork/nex-protocols-go/v2 v2.2.2
@@ -14,7 +13,6 @@ require (
 	github.com/golang/protobuf v1.5.4
 	github.com/joho/godotenv v1.5.1
 	github.com/lib/pq v1.10.9
-	google.golang.org/grpc v1.78.0
 )
 
 require (
