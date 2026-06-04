@@ -1,6 +1,0 @@
-.env
-.git
-build
-log
-go.work
-go.work.sum
