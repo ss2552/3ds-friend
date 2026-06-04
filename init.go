@@ -10,14 +10,9 @@ import (
 	"github.com/PretendoNetwork/friends/database"
 	"github.com/PretendoNetwork/friends/globals"
 	"github.com/PretendoNetwork/friends/types"
-	pb "github.com/PretendoNetwork/grpc/go/account/v2"
 	"github.com/PretendoNetwork/nex-go/v2"
 	nex_types "github.com/PretendoNetwork/nex-go/v2/types"
 	"github.com/PretendoNetwork/plogger-go"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
-	"google.golang.org/grpc/metadata"
-
 	"github.com/joho/godotenv"
 )
 
@@ -51,25 +46,6 @@ func init() {
 		globals.Logger.Criticalf("Failed to decode AES key: %v", err)
 		os.Exit(0)
 	}
-
-	if strings.TrimSpace(globals.Config.GRPCAPIKey) == "" {
-		globals.Logger.Warning("Insecure gRPC server detected. PN_FRIENDS_CONFIG_GRPC_API_KEY environment variable not set")
-	}
-
-	if strings.TrimSpace(globals.Config.AccountGRPCAPIKey) == "" {
-		globals.Logger.Warning("Insecure gRPC server detected. PN_FRIENDS_CONFIG_ACCOUNT_GRPC_API_KEY environment variable not set")
-	}
-
-	globals.GRPCAccountClientConnection, err = grpc.NewClient(fmt.Sprintf("%s:%d", globals.Config.AccountGRPCHost, globals.Config.AccountGRPCPort), grpc.WithTransportCredentials(insecure.NewCredentials()))
-	if err != nil {
-		globals.Logger.Criticalf("Failed to connect to account gRPC server: %v", err)
-		os.Exit(0)
-	}
-
-	globals.GRPCAccountClient = pb.NewAccountServiceClient(globals.GRPCAccountClientConnection)
-	globals.GRPCAccountCommonMetadata = metadata.Pairs(
-		"X-API-Key", globals.Config.AccountGRPCAPIKey,
-	)
 
 	database.ConnectPostgres()
 }
