@@ -10,7 +10,6 @@ import (
 	common_globals "github.com/PretendoNetwork/nex-protocols-common-go/v2/globals"
 
 	database_3ds "github.com/PretendoNetwork/friends/database/3ds"
-	database_wiiu "github.com/PretendoNetwork/friends/database/wiiu"
 	"github.com/PretendoNetwork/friends/globals"
 	friends_types "github.com/PretendoNetwork/friends/types"
 )
@@ -110,14 +109,6 @@ func RegisterEx(err error, packet nex.PacketInterface, callID uint32, vecMyURLs 
 		loginDataType := hCustomData.Object.DataObjectID().(types.String)
 
 		switch loginDataType {
-		case "NintendoLoginData":
-			user.Platform = friends_types.WUP // * Platform is Wii U
-
-			err = database_wiiu.UpdateUserLastOnlineTime(pid, lastOnline)
-			if err != nil {
-				globals.Logger.Critical(err.Error())
-				retval = types.NewQResultError(nex.ResultCodes.Authentication.Unknown)
-			}
 		case "AccountExtraInfo":
 			user.Platform = friends_types.CTR // * Platform is 3DS
 
