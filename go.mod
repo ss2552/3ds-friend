@@ -11,7 +11,6 @@ require (
 	github.com/PretendoNetwork/plogger-go v1.1.0
 	github.com/PretendoNetwork/sql-manager v1.0.0
 	github.com/golang/protobuf v1.5.4
-	github.com/joho/godotenv v1.5.1
 	github.com/lib/pq v1.10.9
 )
 
