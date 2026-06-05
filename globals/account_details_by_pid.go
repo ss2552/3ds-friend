@@ -4,10 +4,8 @@ import (
 	"context"
 	"strconv"
 
-	pb "github.com/PretendoNetwork/grpc/go/account/v2"
 	"github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/nex-go/v2/types"
-	"google.golang.org/grpc/metadata"
 )
 
 func AccountDetailsByPID(pid types.PID) (*nex.Account, *nex.Error) {
@@ -23,16 +21,11 @@ func AccountDetailsByPID(pid types.PID) (*nex.Account, *nex.Error) {
 		return GuestAccount, nil
 	}
 
-	ctx := metadata.NewOutgoingContext(context.Background(), GRPCAccountCommonMetadata)
-
-	response, err := GRPCAccountClient.GetNEXPassword(ctx, &pb.GetNEXPasswordRequest{Pid: uint32(pid)})
-	if err != nil {
-		Logger.Error(err.Error())
-		return nil, nex.NewError(nex.ResultCodes.RendezVous.InvalidPID, "Invalid PID")
-	}
+	// pidから
+	Password
 
 	username := strconv.Itoa(int(pid))
-	account := nex.NewAccount(pid, username, response.Password, false)
+	account := nex.NewAccount(pid, username, Password, false)
 
 	return account, nil
 }
