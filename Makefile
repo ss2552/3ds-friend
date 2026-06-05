@@ -11,7 +11,7 @@ POSTGRES_MAX_CONNECTIONS = 1
 HEALTH_CHECK_PORT = 0
 AES_KEY = $(SERVER_BUILD)
 
-.PHONY build
+.PHONY: build
 
 build:
 	go get -u
