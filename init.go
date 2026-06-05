@@ -13,7 +13,6 @@ import (
 	"github.com/PretendoNetwork/nex-go/v2"
 	nex_types "github.com/PretendoNetwork/nex-go/v2/types"
 	"github.com/PretendoNetwork/plogger-go"
-	"github.com/joho/godotenv"
 )
 
 func init() {
@@ -21,13 +20,6 @@ func init() {
 	globals.ConnectedUsers = nex.NewMutexMap[uint32, *types.ConnectedUser]()
 
 	var err error
-
-	err = godotenv.Load()
-	if err != nil {
-		globals.Logger.Warningf("Error loading .env file: %s", err.Error())
-	}
-
-	globals.Config = globals.NewConfigParser(globals.Config).SetPrefix("PN_FRIENDS_CONFIG").ParseFromEnv()
 
 	kerberosPassword := make([]byte, 0x10)
 	_, err = rand.Read(kerberosPassword)
