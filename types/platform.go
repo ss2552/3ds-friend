@@ -1,7 +1,5 @@
 package types
 
-type Platform int
-
 const (
-	CTR
+	CTR = 1
 )
