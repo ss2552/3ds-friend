@@ -5,8 +5,6 @@ import (
 	pb "github.com/PretendoNetwork/grpc/go/account/v2"
 	"github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/plogger-go"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/metadata"
 )
 
 var Logger *plogger.Logger
@@ -20,6 +18,3 @@ var SecureServer *nex.PRUDPServer
 var SecureEndpoint *nex.PRUDPEndPoint
 var ConnectedUsers *nex.MutexMap[uint32, *types.ConnectedUser]
 var AESKey []byte
-var GRPCAccountClientConnection *grpc.ClientConn
-var GRPCAccountClient pb.AccountServiceClient
-var GRPCAccountCommonMetadata metadata.MD
