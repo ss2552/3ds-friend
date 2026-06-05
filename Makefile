@@ -44,7 +44,7 @@ SERVER_BUILD := $(BRANCH):$(REMOTE_PATH)@$(HASH)
 else
 # * .git folder not present, assume downloaded from zip file and just use folder name
 $(info "$(CYAN)git repository not found. Building server build string from folder name$(RESET)")
-SERVER_BUILD := friends
+SERVER_BUILD := friend
 endif
 
 # * Final build string
@@ -57,8 +57,5 @@ ifeq ($(wildcard .env),)
 endif
 	go get -u
 	go mod tidy
-	go build -ldflags "-X 'main.serverBuildString=$(BUILD_STRING)'" -o ./build/friends
+	go build -ldflags "-X 'main.serverBuildString=$(BUILD_STRING)'" -o ./build/friend
 
-docker:
-	docker build -t friends --build-arg BUILD_STRING="$(BUILD_STRING)" .
-	docker image prune --filter label=stage=builder -f
