@@ -9,10 +9,6 @@ var serverBuildString string
 
 func StartAuthenticationServer() {
 
-	if globals.Config.HealthCheckPort != 0 {
-		go nex.EnableBasicUDPHealthCheck(int(globals.Config.HealthCheckPort))
-	}
-
 	globals.AuthenticationServer = nex.NewPRUDPServer()
 	globals.AuthenticationEndpoint = nex.NewPRUDPEndPoint(1)
 
