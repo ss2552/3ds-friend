@@ -20,6 +20,12 @@ func init() {
 
 	var err error
 
+	globals.Config.SecureServerHost := 0.0.0.0
+	globals.Config.SecureServerPort := 60001
+	globals.Config.AuthenticationServerPort := 60000
+	globals.Config.HealthCheckPort := 0
+	globals.Config.AESKey := "$(SERVER_BUILD)"
+
 	kerberosPassword := make([]byte, 0x10)
 	_, err = rand.Read(kerberosPassword)
 	if err != nil {
