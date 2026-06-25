@@ -11,7 +11,7 @@ import (
 	common_globals "github.com/PretendoNetwork/nex-protocols-common-go/v2/globals"
 	account_management_types "github.com/PretendoNetwork/nex-protocols-go/v2/account-management/types"
 
-	"github.com/PretendoNetwork/friends/globals"
+	"github.com/ss2552/3ds-friend/globals"
 )
 
 // ValidateNintendoCreateAccountToken validates the given Pretendo token for account creation
@@ -21,10 +21,6 @@ func ValidateNintendoCreateAccountToken(token types.DataHolder) (*common_globals
 	tokenDataType := token.Object.DataObjectID().(types.String)
 
 	switch tokenDataType {
-	case "NintendoCreateAccountData": // * Wii U
-		nintendoCreateAccountData := token.Object.Copy().(account_management_types.NintendoCreateAccountData)
-
-		tokenBase64 = string(nintendoCreateAccountData.Token)
 	case "AccountExtraInfo": // * 3DS
 		accountExtraInfo := token.Object.Copy().(account_management_types.AccountExtraInfo)
 
