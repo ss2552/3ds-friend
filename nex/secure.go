@@ -3,10 +3,10 @@ package nex
 import (
 	"time"
 
-	database_3ds "github.com/PretendoNetwork/friends/database/3ds"
-	"github.com/PretendoNetwork/friends/globals"
-	notifications_3ds "github.com/PretendoNetwork/friends/notifications/3ds"
-	friends_types "github.com/PretendoNetwork/friends/types"
+	database_3ds "github.com/ss2552/3ds-friend/database/3ds"
+	"github.com/ss2552/3ds-friend/globals"
+	notifications_3ds "github.com/ss2552/3ds-friend/notifications/3ds"
+	friends_types "github.com/ss2552/3ds-friend/types"
 	nex "github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/nex-go/v2/types"
 	_ "github.com/PretendoNetwork/nex-protocols-go/v2"
