@@ -6,7 +6,6 @@ type config struct {
 	SecureServerHost         string
 	SecureServerPort         uint16
 	HealthCheckPort          uint16 `envconf:"optional"`
-	EnableBella              bool   `envconf:"optional"`
 }
 
 var Config *config = &config{}
