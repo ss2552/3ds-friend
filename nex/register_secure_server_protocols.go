@@ -1,7 +1,7 @@
 package nex
 
 import (
-	"github.com/PretendoNetwork/friends/globals"
+	"github.com/ss2552/3ds-friend/globals"
 	nex_account_management "github.com/ss2552/3ds-friend/nex/account-management"
 	account_management "github.com/PretendoNetwork/nex-protocols-go/v2/account-management"
 )
