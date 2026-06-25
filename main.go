@@ -3,7 +3,7 @@ package main
 import (
 	"sync"
 
-	"github.com/PretendoNetwork/friends/nex"
+	"github.com/ss2552/3ds-friend/nex"
 )
 
 var wg sync.WaitGroup
