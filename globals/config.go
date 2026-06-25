@@ -1,8 +1,6 @@
 package globals
 
 type config struct {
-	PostgresURI              string
-	PostgresMaxConnections   int64
 	AESKey                   string
 	AuthenticationServerPort uint16
 	SecureServerHost         string
