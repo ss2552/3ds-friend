@@ -6,8 +6,8 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 
-	"github.com/PretendoNetwork/friends/globals"
-	"github.com/PretendoNetwork/friends/utility"
+	"github.com/ss2552/3ds-friend/globals"
+	"github.com/ss2552/3ds-friend/utility"
 	nex "github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/nex-go/v2/types"
 	account_management "github.com/PretendoNetwork/nex-protocols-go/v2/account-management"
