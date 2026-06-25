@@ -7,9 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/PretendoNetwork/friends/database"
-	"github.com/PretendoNetwork/friends/globals"
-	"github.com/PretendoNetwork/friends/types"
+	"github.com/ss2552/3ds-friend/globals"
+	"github.com/ss2552/3ds-friend/types"
 	"github.com/PretendoNetwork/nex-go/v2"
 	nex_types "github.com/PretendoNetwork/nex-go/v2/types"
 	"github.com/PretendoNetwork/plogger-go"
@@ -38,6 +37,4 @@ func init() {
 		globals.Logger.Criticalf("Failed to decode AES key: %v", err)
 		os.Exit(0)
 	}
-
-	database.ConnectPostgres()
 }
