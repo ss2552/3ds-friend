@@ -9,9 +9,9 @@ import (
 	secure_connection "github.com/PretendoNetwork/nex-protocols-go/v2/secure-connection"
 	common_globals "github.com/PretendoNetwork/nex-protocols-common-go/v2/globals"
 
-	database_3ds "github.com/PretendoNetwork/friends/database/3ds"
-	"github.com/PretendoNetwork/friends/globals"
-	friends_types "github.com/PretendoNetwork/friends/types"
+	database_3ds "github.com/ss2552/3ds-friend/database/3ds"
+	"github.com/ss2552/3ds-friend/globals"
+	friends_types "github.com/ss2552/friend/types"
 )
 
 func RegisterEx(err error, packet nex.PacketInterface, callID uint32, vecMyURLs types.List[types.StationURL], hCustomData types.DataHolder) (*nex.RMCMessage, *nex.Error) {
