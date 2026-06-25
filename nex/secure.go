@@ -3,9 +3,7 @@ package nex
 import (
 	"time"
 
-	database_3ds "github.com/ss2552/3ds-friend/database/3ds"
 	"github.com/ss2552/3ds-friend/globals"
-	notifications_3ds "github.com/ss2552/3ds-friend/notifications/3ds"
 	friends_types "github.com/ss2552/3ds-friend/types"
 	nex "github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/nex-go/v2/types"
@@ -26,19 +24,6 @@ func StartSecureServer() {
 
 		if !ok || user == nil {
 			return
-		}
-
-		platform := user.Platform
-		lastOnline := types.NewDateTime(0)
-		lastOnline.FromTimestamp(time.Now())
-
-		if platform == friends_types.CTR {
-			err := database_3ds.UpdateUserLastOnlineTime(pid, lastOnline)
-			if err != nil {
-				globals.Logger.Critical(err.Error())
-			}
-
-			notifications_3ds.SendUserWentOfflineGlobally(connection)
 		}
 
 		globals.ConnectedUsers.Delete(pid)
