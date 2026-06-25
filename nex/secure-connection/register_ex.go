@@ -9,9 +9,9 @@ import (
 	secure_connection "github.com/PretendoNetwork/nex-protocols-go/v2/secure-connection"
 	common_globals "github.com/PretendoNetwork/nex-protocols-common-go/v2/globals"
 
-	database_3ds "github.com/ss2552/3ds-friend/database/3ds"
+//	database_3ds "github.com/ss2552/3ds-friend/database/3ds"
 	"github.com/ss2552/3ds-friend/globals"
-	friends_types "github.com/ss2552/friend/types"
+	friends_types "github.com/ss2552/3ds-friend/types"
 )
 
 func RegisterEx(err error, packet nex.PacketInterface, callID uint32, vecMyURLs types.List[types.StationURL], hCustomData types.DataHolder) (*nex.RMCMessage, *nex.Error) {
@@ -105,22 +105,22 @@ func RegisterEx(err error, packet nex.PacketInterface, callID uint32, vecMyURLs 
 		user.PID = pid
 		user.Connection = connection
 
-		lastOnline := types.NewDateTime(0).Now()
-		loginDataType := hCustomData.Object.DataObjectID().(types.String)
+//		lastOnline := types.NewDateTime(0).Now()
+//		loginDataType := hCustomData.Object.DataObjectID().(types.String)
 
-		switch loginDataType {
-		case "AccountExtraInfo":
-			user.Platform = friends_types.CTR // * Platform is 3DS
+//		switch loginDataType {
+//		case "AccountExtraInfo":
+//			user.Platform = friends_types.CTR // * Platform is 3DS
 
-			err = database_3ds.UpdateUserLastOnlineTime(pid, lastOnline)
-			if err != nil {
-				globals.Logger.Critical(err.Error())
-				retval = types.NewQResultError(nex.ResultCodes.Authentication.Unknown)
-			}
-		default:
-			globals.Logger.Errorf("Unknown loginData data type %s!", loginDataType)
-			retval = types.NewQResultError(nex.ResultCodes.Authentication.ValidationFailed)
-		}
+//			err = database_3ds.UpdateUserLastOnlineTime(pid, lastOnline)
+//			if err != nil {
+//				globals.Logger.Critical(err.Error())
+//				retval = types.NewQResultError(nex.ResultCodes.Authentication.Unknown)
+//			}
+//		default:
+//			globals.Logger.Errorf("Unknown loginData data type %s!", loginDataType)
+//			retval = types.NewQResultError(nex.ResultCodes.Authentication.ValidationFailed)
+//		}
 
 		if !retval.IsError() {
 			globals.ConnectedUsers.Set(pid, user)
