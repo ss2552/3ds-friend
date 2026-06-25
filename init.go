@@ -20,11 +20,10 @@ func init() {
 
 	var err error
 
-	globals.Config.SecureServerHost := 0.0.0.0
+	globals.Config.SecureServerHost := 
 	globals.Config.SecureServerPort := 60001
 	globals.Config.AuthenticationServerPort := 60000
 	globals.Config.HealthCheckPort := 0
-	globals.Config.AESKey := "$(SERVER_BUILD)"
 
 	kerberosPassword := make([]byte, 0x10)
 	_, err = rand.Read(kerberosPassword)
@@ -38,7 +37,15 @@ func init() {
 	globals.AuthenticationServerAccount = nex.NewAccount(nex_types.NewPID(1), "Quazal Authentication", globals.KerberosPassword, false)
 	globals.SecureServerAccount = nex.NewAccount(nex_types.NewPID(2), "Quazal Rendez-Vous", globals.KerberosPassword, false)
 	globals.GuestAccount = nex.NewAccount(nex_types.NewPID(100), "guest", "MMQea3n!fsik", false)
-	globals.AESKey, err = hex.DecodeString(globals.Config.AESKey)
+
+	AESKey := make([]byte, 32)
+	_, err = rand.Read(AESKey)
+	if err != nil {
+		globals.Logger.Error("Error generating AES key")
+		os.Exit(0)
+	}
+
+	globals.AESKey, err = hex.DecodeString(AESKey)
 	if err != nil {
 		globals.Logger.Criticalf("Failed to decode AES key: %v", err)
 		os.Exit(0)
