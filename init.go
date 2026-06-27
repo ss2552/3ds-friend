@@ -3,9 +3,7 @@ package main
 import (
 	"crypto/rand"
 	"encoding/hex"
-	"fmt"
 	"os"
-	"strings"
 
 	"github.com/ss2552/3ds-friend/globals"
 	"github.com/ss2552/3ds-friend/types"
@@ -20,9 +18,9 @@ func init() {
 
 	var err error
 
-	globals.Config.SecureServerHost := os.Getenv("SECURE_SERVICR_IP")
-	globals.Config.SecureServerPort := 60001
-	globals.Config.AuthenticationServerPort := 60000
+	globals.Config.SecureServerHost = os.Getenv("SECURE_SERVICR_IP")
+	globals.Config.SecureServerPort = 60001
+	globals.Config.AuthenticationServerPort = 60000
 
 	kerberosPassword := make([]byte, 0x10)
 	_, err = rand.Read(kerberosPassword)
@@ -37,7 +35,7 @@ func init() {
 	globals.SecureServerAccount = nex.NewAccount(nex_types.NewPID(2), "Quazal Rendez-Vous", globals.KerberosPassword, false)
 	globals.GuestAccount = nex.NewAccount(nex_types.NewPID(100), "guest", "MMQea3n!fsik", false)
 
-	AESKey := make([]byte, 32)
+	AESKey = make([]byte, 32)
 	_, err = rand.Read(AESKey)
 	if err != nil {
 		globals.Logger.Error("Error generating AES key")
