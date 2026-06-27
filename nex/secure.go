@@ -1,12 +1,8 @@
 package nex
 
 import (
-	"time"
-
 	"github.com/ss2552/3ds-friend/globals"
-	friends_types "github.com/ss2552/3ds-friend/types"
 	nex "github.com/PretendoNetwork/nex-go/v2"
-	"github.com/PretendoNetwork/nex-go/v2/types"
 	_ "github.com/PretendoNetwork/nex-protocols-go/v2"
 )
 
