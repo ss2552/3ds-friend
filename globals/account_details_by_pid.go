@@ -21,11 +21,10 @@ func AccountDetailsByPID(pid types.PID) (*nex.Account, *nex.Error) {
 		return GuestAccount, nil
 	}
 
-	// pidから
-	Password
+	password := "nupHf1bMOjIs4FoX"
 
 	username := strconv.Itoa(int(pid))
-	account := nex.NewAccount(pid, username, Password, false)
+	account := nex.NewAccount(pid, username, password, false)
 
 	return account, nil
 }
