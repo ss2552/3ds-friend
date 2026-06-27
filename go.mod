@@ -1,4 +1,4 @@
-module github.com/ss2552/3dsfriend
+module github.com/ss2552/3ds-friend
 
 go 1.26.4
 
