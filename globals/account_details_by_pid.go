@@ -1,7 +1,6 @@
 package globals
 
 import (
-	"context"
 	"strconv"
 
 	"github.com/PretendoNetwork/nex-go/v2"
