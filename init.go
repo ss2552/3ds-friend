@@ -20,10 +20,9 @@ func init() {
 
 	var err error
 
-	globals.Config.SecureServerHost := 
+	globals.Config.SecureServerHost := os.Getenv("SECURE_SERVICR_IP")
 	globals.Config.SecureServerPort := 60001
 	globals.Config.AuthenticationServerPort := 60000
-	globals.Config.HealthCheckPort := 0
 
 	kerberosPassword := make([]byte, 0x10)
 	_, err = rand.Read(kerberosPassword)
