@@ -1,4 +1,4 @@
-module github.com/PretendoNetwork/friends
+module github.com/ss2552/3dsfriend
 
 go 1.26.4
 
