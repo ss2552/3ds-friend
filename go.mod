@@ -1,15 +1,14 @@
 module github.com/PretendoNetwork/friends
 
-go 1.24.0
+go 1.26.4
 
-toolchain go1.24.3
+toolchain go1.26.4
 
 require (
 	github.com/PretendoNetwork/nex-go/v2 v2.3.0
 	github.com/PretendoNetwork/nex-protocols-common-go/v2 v2.4.0
 	github.com/PretendoNetwork/nex-protocols-go/v2 v2.2.2
 	github.com/PretendoNetwork/plogger-go v1.1.0
-	github.com/PretendoNetwork/sql-manager v1.0.0
 	github.com/golang/protobuf v1.5.4
 	github.com/lib/pq v1.10.9
 )
@@ -39,6 +38,5 @@ require (
 	golang.org/x/sys v0.40.0 // indirect
 	golang.org/x/term v0.39.0 // indirect
 	golang.org/x/text v0.33.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260114163908-3f89685c29c3 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 )
