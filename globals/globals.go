@@ -1,8 +1,7 @@
 package globals
 
 import (
-	"github.com/PretendoNetwork/friends/types"
-	pb "github.com/PretendoNetwork/grpc/go/account/v2"
+	"github.com/ss2552/3ds-friend/types"
 	"github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/plogger-go"
 )
